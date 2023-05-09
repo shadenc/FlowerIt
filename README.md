@@ -2,11 +2,13 @@
 
 Flower it is the ultimate online destination to order flowers and gifts for your loved ones for any occasion.
 
-## UI 
+## UI Design 
 
-![image](https://github.com/shadenc/FlowerIt/blob/main/assets/85040974/54a3ad79-a428-4269-b2c7-1154ba27c8d9.png)
+![image](https://github.com/shadenc/FlowerIt/assets/85040974/4e8e5fc1-8a18-44b1-9e3f-e5dcb2446dbb)
 
-![image](https://github.com/shadenc/FlowerIt/blob/main/assets/85040974/b958abcf-a2bc-4493-b5af-c1a8961cd15f.png)
+
+![image](https://github.com/shadenc/FlowerIt/assets/85040974/0cb57d30-fab2-460d-8a81-5d5fe990632c)
+
 
 UI & UX design : https://www.behance.net/gallery/170209419/Flower-Shop
 `
