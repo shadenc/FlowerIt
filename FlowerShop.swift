@@ -41,9 +41,9 @@ print("\nWelcome to the Swift Flowers shop\n")
 repeat {
     print("--------------------⌜📄MENU📄⌝---------------------")
     print("1. See the Newest Flowers❗️❗️")
-    print("2. Search in Categories🪐")
-    print("3. View all Flowers📚")
-    print("4. View the History🏄‍♂️")
+    print("2. Search in Categories")
+    print("3. View all Flowers")
+    print("4. View the History")
     print("5. Exit➡️")
     print("---------------------------------------------------")
     print("Select your choice!")
@@ -146,7 +146,7 @@ func Anniversary() {
     let flower = Flowers()
     let Anniversary =
     """
-    ------------⌜🏄‍♂️Anniversary🏄‍♂️⌝--------------
+    ------------⌜Anniversary⌝--------------
     1. Pink Flamingo
     ---------------------------------------------------
     """
