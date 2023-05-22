@@ -85,7 +85,7 @@ func seeNewestFlowers() {
 
         print("\n")
         print(newestFlowers)
-        print("Which Bouquet do you want to see its information❓ or choose -1 to return to menu☕️")
+        print("Which Bouquet do you want to see its information❓ or choose -1 to return to menu")
 
         var newestFlowerChoice: String = ""
         if let input1 = readLine() {
@@ -120,7 +120,7 @@ func FlowersInCategories() {
         """
         print("\n")
         print(FlowersCategories)
-        print("Which occasion do you want to see its Bouquets or choose -1 to return to menu☕️")
+        print("Which occasion do you want to see its Bouquets or choose -1 to return to menu")
 
         var flowersCategoryChoice = ""
         if let input = readLine() {
@@ -151,8 +151,8 @@ func Anniversary() {
     ---------------------------------------------------
     """
     print("\n")
-    print(Anniversary)
-    print("Which bouquet do you want to see its information❓ or choose -1 to return to categories☕️")
+    print(Anniversary) 
+    print("Which bouquet do you want to see its information❓ or choose -1 to return to categories")
 
     var AnniversaryChoice = ""
     if let input = readLine() {
