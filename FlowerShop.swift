@@ -39,8 +39,8 @@ var whileCondition = true
 print("\nWelcome to the Swift Flowers shop\n")
 
 repeat {
-    print("--------------------⌜📄MENU📄⌝---------------------")
-    print("1. See the Newest Flowers❗️❗️")
+    print("MENU")
+    print("1. view Newest Flowers 🌸🌸🥳")
     print("2. Search in Categories")
     print("3. View all Flowers")
     print("4. View the History")
@@ -112,7 +112,7 @@ func FlowersInCategories() {
     while true {
         let FlowersCategories =
         """
-        -------------⌜📝Flowers Categories📝⌝----------------
+        -------------⌜Flowers Categories⌝----------------
         1. Anniversary
         2. New Baby Born
         3. Graduation
