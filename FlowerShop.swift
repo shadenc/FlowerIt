@@ -1,50 +1,48 @@
-
-var historyFlowers : [String] = []
 var whileCondition = true
+
 class Flowers {
-    var BouquetsName: String
-    var FlowerType: String
-    var Price: String
-    var Rating: String
-    var Description: String
+    var bouquetsName: String
+    var flowerType: String
+    var price: String
+    var rating: String
+    var description: String
     
     init() {
-        BouquetsName = ""
-        FlowerType = ""
-        Price = ""
-        Rating = ""
-        Description = ""
+        bouquetsName = ""
+        flowerType = ""
+        price = ""
+        rating = ""
+        description = ""
     }
     
-    init(BouquetsName:String , FlowerType:String , Price:String , Rating:String , Description:String) {
-        self.BouquetsName = "Name of the Bouquet: " + BouquetsName
-        self.FlowerType =   "Type of the Flower: " + FlowerType
-        self.Price =        "Price           : " + Price
-        self.Rating =       "Rating          : " + Rating
-        self.Description =  "Description     : " + Description
+    init(bouquetsName: String, flowerType: String, price: String, rating: String, description: String) {
+        self.bouquetsName = "Name of the Bouquet: " + bouquetsName
+        self.flowerType = "Type of the Flower: " + flowerType
+        self.price = "Price: " + price
+        self.rating = "Rating: " + rating
+        self.description = "Description: " + description
     }
     
-    func printFlowers( flowersDictionary : Dictionary<String, Flowers> , newestFlowerName :String) {
-        print("\(flowersDictionary[newestFlowerName]!.FlowerType) \n\(flowersDictionary[newestFlowerName]!.BouquetsName) \n\(flowersDictionary[newestFlowerName]!.Description)")
+    func printFlowers() {
+        print("\(self.flowerType)\n\(self.bouquetsName)\n\(self.description)")
     }
 }
 
-var allFlowers: Dictionary<String, Flowers> = [
-    "Pink Roses": Flowers(BouquetsName: "Pink Roses", FlowerType: "Roses", Price: "18.20$", Rating: "4/5", Description: "Share your feelings with your loved ones with this meaningful gesture of pretty flowers"),
-    "Blissful White": Flowers(BouquetsName: "Blissful White", FlowerType: "Lilies", Price: "20$", Rating: "4.6/5", Description: "This stunning hand boutique is the peaceful gift blend of white lilies and white roses"),
-    "Pink Flamingo": Flowers(BouquetsName: "Pink Flamingo", FlowerType: "Tulips", Price: "30$", Rating: "4.9/5", Description: "Vendela Roses one of the most popular ivory cur roses"),
-    "Simple Beauty": Flowers(BouquetsName: "Simple Beauty", FlowerType: "Hydrange", Price: "44$", Rating: "3/5", Description: "A cylinder vase that's arranged with blue hydrangea & white orchid")
+var allFlowers: [String: Flowers] = [
+    "Pink Roses": Flowers(bouquetsName: "Pink Roses", flowerType: "Roses", price: "18.20$", rating: "4/5", description: "Share your feelings with your loved ones with this meaningful gesture of pretty flowers"),
+    "Blissful White": Flowers(bouquetsName: "Blissful White", flowerType: "Lilies", price: "20$", rating: "4.6/5", description: "This stunning hand boutique is the peaceful gift blend of white lilies and white roses"),
+    "Pink Flamingo": Flowers(bouquetsName: "Pink Flamingo", flowerType: "Tulips", price: "30$", rating: "4.9/5", description: "Vendela Roses one of the most popular ivory cur roses"),
+    "Simple Beauty": Flowers(bouquetsName: "Simple Beauty", flowerType: "Hydrange", price: "44$", rating: "3/5", description: "A cylinder vase that's arranged with blue hydrangea & white orchid")
 ]
 
-print("\nWelcome to the Swift Flowers shop\n")
+print("\n Welcome to our Flowers application shop \n")
 
 repeat {
     print("MENU")
-    print("1. view Newest Flowers 🌸🌸🥳")
+    print("1. View Newest Flowers 🌸🌸🥳")
     print("2. Search in Categories")
-    print("3. View all Flowers")
-    print("4. View the History")
-    print("5. Exit➡️")
+    print("3. View All Flowers")
+    print("4. Exit ➡️")
     print("---------------------------------------------------")
     print("Select your choice!")
 
@@ -53,19 +51,13 @@ repeat {
         case "1":
             seeNewestFlowers()
         case "2":
-            FlowersInCategories()
+            flowersInCategories()
         case "3":
-            AllFlowers()
+            viewAllFlowers()
         case "4":
-            if historyFlowers.isEmpty {
-                print("You haven't add any flowers yet.")
-            } else {
-                print(historyFlowers)
-            }
-        case "5":
             whileCondition = false
         default:
-            print("Invalid choice❗️Please try again")
+            print("Invalid choice! Please try again.")
         }
     }
 } while whileCondition
@@ -73,7 +65,6 @@ repeat {
 print("Thank you for choosing our store!")
 
 func seeNewestFlowers() {
-    let flower = Flowers()
     while true {
         let newestFlowers =
         """
@@ -85,7 +76,7 @@ func seeNewestFlowers() {
 
         print("\n")
         print(newestFlowers)
-        print("Which Bouquet do you want to see❓ or choose -1 to return to menu")
+        print("Which bouquet do you want to see❓ or choose -1 to return to menu")
 
         var newestFlowerChoice: String = ""
         if let input1 = readLine() {
@@ -93,24 +84,24 @@ func seeNewestFlowers() {
 
             switch newestFlowerChoice {
             case "1":
-                flower.printFlowers(flowersDictionary: allFlowers , newestFlowerName: "Blissful White")
-                historyFlowers.append("Blissful White")
+                let bouquet = allFlowers["Blissful White"]
+                bouquet?.printFlowers()
 
             case "2":
-                flower.printFlowers(flowersDictionary: allFlowers, newestFlowerName: "Simple Beauty")
-                historyFlowers.append("Simple Beauty")
+                let bouquet = allFlowers["Simple Beauty"]
+                bouquet?.printFlowers()
             case "-1":
                 return
             default:
-                print("Invalid choice❗️Please try again")
+                print("Invalid choice! Please try again.")
             }
         }
     }
 }
 
-func FlowersInCategories() {
+func flowersInCategories() {
     while true {
-        let FlowersCategories =
+        let flowersCategories =
         """
         -------------⌜Flowers Categories⌝----------------
         1. Anniversary
@@ -119,103 +110,43 @@ func FlowersInCategories() {
         ---------------------------------------------------
         """
         print("\n")
-        print(FlowersCategories)
-        print("Which occasion do you want to see its Bouquets or choose -1 to return to menu")
+        print(flowersCategories)
+        print("Which occasion do you want to see its Bouquets or choose -1 to continue to the main menu")
 
-        var flowersCategoryChoice = ""
+        var occasionChoice: String = ""
         if let input = readLine() {
-            flowersCategoryChoice = input
+            occasionChoice = input
 
-            switch flowersCategoryChoice {
+            switch occasionChoice {
             case "1":
-                Anniversary()
+                print("\n---------------------------------------------------")
+                print("Anniversary Bouquets")
+                print("1. Pink Roses")
+                print("2. Blissful White")
+                print("---------------------------------------------------")
             case "2":
-                NewBabyBorn()
+                print("\n---------------------------------------------------")
+                print("New Baby Born Bouquets")
+                print("1. Pink Flamingo")
+                print("2. Simple Beauty")
+            case "3":
+                print("\n---------------------------------------------------")
+                print("Graduation Bouquets")
+                print("1. Simple Beauty")
+                print("---------------------------------------------------")
             case "-1":
                 return
             default:
-                print("Invalid choice! Please try again")
+                print("Invalid choice! Please try again.")
             }
         }
     }
 }
 
-func anniversary() {
-    let flower = Flowers()
-    let Anniversary =
-    """
-    ------------⌜Anniversary⌝--------------
-    1. Pink Flamingo
-    ---------------------------------------------------
-    """
-    print("\n")
-    print(Anniversary) 
-    print("Which bouquet do you want to see its information❓ or choose -1 to return to categories")
-
-    var AnniversaryChoice = ""
-    if let input = readLine() {
-        AnniversaryChoice = input
-
-        switch AnniversaryChoice {
-        case "1":
-            flower.printFlowers(flowersDictionary: allFlowers, newestFlowerName: "Pink Flamingo")
-            historyFlowers.append("Pink Flamingo")
-        case "-1":
-            return
-        default:
-            print("Invalid choice❗️ please try again")  
-            anniversary()
-        }
+func viewAllFlowers() {
+    print("\n---------------------------------------------------")
+    print("All Bouquets")
+    for (name, bouquet) in allFlowers {
+        print("\n\(name):\n\(bouquet.description)\n")
     }
-}
-func NewBabyBorn(){
-    let flower = Flowers()
-    let    NewBabyBorn =
-    """
-    ------------⌜NewBabyBorn⌝--------------
-    1. Blissful White
-    ---------------------------------------------------
-    """
-    print("\n")
-    print(NewBabyBorn) 
-    print("Which bouquet do you want to see its information❓ or choose -1 to return to categories")
-
-    var NewBabyBornChoice = ""
-    if let input = readLine() {
-        NewBabyBornChoice = input
-
-        switch NewBabyBorn {
-        case "1":
-            flower.printFlowers(flowersDictionary: allFlowers, newestFlowerName: "Blissful White")
-            historyFlowers.append("Pink Flamingo")
-        case "-1":
-            return
-        default:
-            print("Invalid choice❗️ please try again")  
-            anniversary()
-        }
-    }
-}
-func Allflowers() {
-    let flower = Flowers()
-    print("All flowers :")
-    for book in allFlowers {
-        print(flower.key)
-    }
-    print("Which flower do you want to see its infromation❓ or choose -1 to return to menu")
-    if let userInputforAllflowers = readLine() {
-  
-        if allFlowers.keys.contains(userInputforAllflowers) {
-            flower.printFlowers(flowersDictionary: allFlowers , newestFlowerName: userInputforAllflowers)
-        }
-        else if userInputforAllflowers == "-1" {
-            return
-        }
-        else {
-            print("Invalid choice❗️ please try again")
-            Allflowers() 
-        }
-              
-    }
- 
 }
